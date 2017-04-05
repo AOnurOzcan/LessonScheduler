@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr" ng-app="LessonScheduler">
+<head>
+    <meta charset="UTF-8">
+    <title>Grunt Ready NodeAngular Project</title>
+
+    <link rel="stylesheet" href="app/assets/lib/bootstrap/dist/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="app/assets/lib/font-awesome/css/font-awesome.css" type="text/css"/>
+    <link rel="stylesheet" href="app/assets/lib/ng-notify/dist/ng-notify.min.css" type="text/css"/>
+    <link rel="stylesheet" href="app/assets/lib/rdash-ui/dist/css/rdash.min.css" type="text/css"/>
+    <link rel="stylesheet" href="app/assets/css/style.css" type="text/css"/>
+
+    <script type="text/javascript" src="app/assets/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="app/assets/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="app/assets/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="app/assets/lib/ng-notify/dist/ng-notify.min.js"></script>
+
+
+    <script src="app/routes.js"></script>
+    <script src="app/controllers/classroom-ctrl.js"></script>
+    <script src="app/services/classroom-service.js"></script>
+    <script src="app/services/user-service.js"></script>
+    <script src="app/controllers/home-ctrl.js"></script>
+    <script src="app/controllers/sidebar-ctrl.js"></script>
+    <script src="app/controllers/header-ctrl.js"></script>
+    <script src="app/controllers/dashboard-ctrl.js"></script>
+    <script src="app/controllers/master-ctrl.js"></script>
+    <script src="app/controllers/user-ctrl.js"></script>
+
+</head>
+<body ng-controller="MasterCtrl">
+<div ui-view="full"></div>
+<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+    <div ui-view="sidebar"></div>
+
+    <div id="content-wrapper">
+
+        <div class="page-content">
+
+            <div ui-view="header"></div>
+            <!-- Main Content -->
+            <div ui-view="content"></div>
+
+        </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+</div><!-- End Page Wrapper -->
+</body>
+</html>

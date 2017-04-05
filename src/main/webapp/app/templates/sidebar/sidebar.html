@@ -1,0 +1,33 @@
+<!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a ng-click="toggleSidebar()">
+            Yönetim Paneli
+            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+          </a>
+        </li>
+        <li class="sidebar-title"><span>İŞLEMLER</span></li>
+        <li ng-repeat="menu in menus" class="sidebar-list">
+          <a ng-href="{{menu.href}}">{{menu.name}}<span class="menu-icon fa {{menu.icon}}"></span></a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="col-xs-4">
+          <a href="https://github.com/rdash/rdash-angular" target="_blank">
+            &nbsp;
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
+            &nbsp;
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a href="#">
+            &nbsp;
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End Sidebar -->

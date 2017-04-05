@@ -1,0 +1,10 @@
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" ng-submit="login(user)">
+            <input type="text" placeholder="Kullanıcı Adı" ng-model="user.username" required/>
+            <input type="password" placeholder="Şifre" ng-model="user.password" required/>
+            <button type="submit">Giriş</button>
+            <p class="message">Hesabınız yok mu? <a ui-sref="register">Kayıt Olun</a></p>
+        </form>
+    </div>
+</div>
