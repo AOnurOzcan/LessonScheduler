@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+        <h1>Kısıtı düzenle</h1>
+
+        <form ng-submit="updateConstraint(constraint)">
+
+            <div class="form-group">
+                <select class="form-control" ng-model="constraint.availableDay" required>
+                    <option value="" disabled selected>Gün Seçiniz</option>
+                    <option value="1">Pazartesi</option>
+                    <option value="2">Salı</option>
+                    <option value="3">Çarşamba</option>
+                    <option value="4">Perşembe</option>
+                    <option value="5">Cuma</option>
+                    <option value="6">Cumartesi</option>
+                    <option value="7">Pazar</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-warning" value="Kaydet">
+            </div>
+        </form>
+    </div>
+</div>
