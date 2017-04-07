@@ -31,7 +31,10 @@ public class User implements Serializable {
     private String password;
 
     @Column(name = "ACCOUNT_TYPE")
-    private Integer accountType; //0: Öğretmen, 1: Yönetici
+    private Integer accountType; //0: Akademisyen, 1: Yönetici
+
+    @Column(name = "LESSON_INTERVAL")
+    private Integer lessonInterval;
 
     public Integer getId() {
         return id;
@@ -71,5 +74,13 @@ public class User implements Serializable {
 
     public void setAccountType(Integer accountType) {
         this.accountType = accountType;
+    }
+
+    public Integer getLessonInterval() {
+        return lessonInterval;
+    }
+
+    public void setLessonInterval(Integer lessonInterval) {
+        this.lessonInterval = lessonInterval;
     }
 }

@@ -17,6 +17,8 @@ public class UserDto {
 
     private Integer accountType; //0: Öğretmen, 1: Yönetici
 
+    private Integer lessonInterval;
+
     public UserDto() {
     }
 
@@ -26,6 +28,7 @@ public class UserDto {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.accountType = user.getAccountType();
+        this.lessonInterval = user.getLessonInterval();
     }
 
     public Integer getId() {
@@ -66,5 +69,13 @@ public class UserDto {
 
     public void setAccountType(Integer accountType) {
         this.accountType = accountType;
+    }
+
+    public Integer getLessonInterval() {
+        return lessonInterval;
+    }
+
+    public void setLessonInterval(Integer lessonInterval) {
+        this.lessonInterval = lessonInterval;
     }
 }

@@ -49,6 +49,8 @@
         <jaxrs:serviceBeans>
             <ref bean="classRoomResource"/>
             <ref bean="userResource"/>
+            <ref bean="constraintResource"/>
+            <ref bean="lessonResource"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean='jacksonProvider'/>

@@ -39,16 +39,8 @@ public class UserService {
             user.setName(userDto.getName());
             user.setUsername(userDto.getUsername());
             user.setPassword(userDto.getPassword());
-            user = userDao.persist(user);
+            userDao.persist(user);
 
-            UserDto sessionObject = new UserDto();
-
-            sessionObject.setUsername(user.getUsername());
-            sessionObject.setName(user.getName());
-            sessionObject.setAccountType(user.getAccountType());
-            sessionObject.setId(user.getId());
-
-            httpSession.setAttribute("user", sessionObject);
         } else {
             //Bu kullanıcı adı zaten var.
             throw new Exception("Bu kullanıcı adı sistemde kayıtlı.");
@@ -56,6 +48,7 @@ public class UserService {
 
     }
 
+    @Transactional(readOnly = true)
     public UserDto login(UserDto userDto) {
         User user = new User();
         user.setUsername(userDto.getUsername());
@@ -69,6 +62,7 @@ public class UserService {
         sessionObject.setName(user.getName());
         sessionObject.setAccountType(user.getAccountType());
         sessionObject.setId(user.getId());
+        sessionObject.setLessonInterval(user.getLessonInterval());
 
         httpSession.setAttribute("user", sessionObject);
 
@@ -89,4 +83,30 @@ public class UserService {
         httpSession.invalidate();
     }
 
+    @Transactional
+    public void saveLessonInterval(UserDto userDto) {
+
+        User user = userDao.find(userDto.getId());
+
+        user.setLessonInterval(userDto.getLessonInterval());
+
+        userDao.merge(user);
+
+    }
+
+    @Transactional(readOnly = true)
+    public UserDto getUser(Integer userId) {
+
+        User user = userDao.find(userId);
+        UserDto userDto = new UserDto();
+
+        userDto.setId(user.getId());
+        userDto.setUsername(user.getUsername());
+        userDto.setLessonInterval(user.getLessonInterval());
+        userDto.setAccountType(user.getAccountType());
+        userDto.setName(user.getName());
+
+        return userDto;
+
+    }
 }

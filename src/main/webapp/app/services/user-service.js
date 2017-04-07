@@ -14,6 +14,12 @@ angular.module('LessonScheduler')
             login: function (user) {
                 return $http.post("/api/user/login", user);
             },
+            saveLessonInterval: function (user) {
+                return $http.post("/api/user/lessonInterval", user);
+            },
+            getUser: function (userId) {
+                return $http.get("/api/user/" + userId);
+            },
             setCredentials: function (user) {
                 $rootScope.currentUser = {
                     id: user.id,

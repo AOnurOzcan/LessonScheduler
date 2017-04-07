@@ -7,25 +7,41 @@
     <link rel="stylesheet" href="app/assets/lib/bootstrap/dist/css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="app/assets/lib/font-awesome/css/font-awesome.css" type="text/css"/>
     <link rel="stylesheet" href="app/assets/lib/ng-notify/dist/ng-notify.min.css" type="text/css"/>
-    <link rel="stylesheet" href="app/assets/lib/rdash-ui/dist/css/rdash.min.css" type="text/css"/>
+    <link rel="stylesheet" href="app/assets/lib/rdash-ui/dist/css/rdash.css" type="text/css"/>
     <link rel="stylesheet" href="app/assets/css/style.css" type="text/css"/>
 
-    <script type="text/javascript" src="app/assets/lib/angular/angular.js"></script>
+    <!-- Calendar Start -->
+    <link rel="stylesheet" href="app/assets/lib/fullcalendar/dist/fullcalendar.css"/>
+    <!-- jquery, moment, and angular have to get included before fullcalendar -->
+    <script type="text/javascript" src="app/assets/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="app/assets/lib/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="app/assets/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app/assets/lib/angular-ui-calendar/src/calendar.js"></script>
+    <script type="text/javascript" src="app/assets/lib/fullcalendar/dist/fullcalendar.js"></script>
+    <script type="text/javascript" src="app/assets/lib/fullcalendar/dist/lang/tr.js"></script>
+    <!-- Calendar End -->
+
+    <!--<script type="text/javascript" src="app/assets/lib/angular/angular.js"></script>-->
     <script type="text/javascript" src="app/assets/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script type="text/javascript" src="app/assets/lib/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="app/assets/lib/ng-notify/dist/ng-notify.min.js"></script>
-
 
     <script src="app/routes.js"></script>
     <script src="app/controllers/classroom-ctrl.js"></script>
     <script src="app/services/classroom-service.js"></script>
     <script src="app/services/user-service.js"></script>
-    <script src="app/controllers/home-ctrl.js"></script>
+    <script src="app/services/constraint-service.js"></script>
+    <script src="app/services/lesson-service.js"></script>
     <script src="app/controllers/sidebar-ctrl.js"></script>
     <script src="app/controllers/header-ctrl.js"></script>
     <script src="app/controllers/dashboard-ctrl.js"></script>
     <script src="app/controllers/master-ctrl.js"></script>
     <script src="app/controllers/user-ctrl.js"></script>
+    <script src="app/controllers/constraint-ctrl.js"></script>
+    <script src="app/controllers/lesson-ctrl.js"></script>
+    <script src="app/controllers/choose-lesson-ctrl.js"></script>
+
+    <script src="app/filters/day-names-filter.js"></script>
 
 </head>
 <body ng-controller="MasterCtrl">

@@ -89,4 +89,33 @@ public class UserResource {
         return Response.ok().build();
     }
 
+    @POST
+    @Path("/lessonInterval")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response saveLessonInterval(UserDto userDto) {
+
+        try {
+            userService.saveLessonInterval(userDto);
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+
+        return Response.ok().build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getUser(@PathParam("id") Integer userId) {
+
+        UserDto userDto;
+
+        try {
+            userDto = userService.getUser(userId);
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+
+        return Response.ok(userDto).build();
+    }
+
 }

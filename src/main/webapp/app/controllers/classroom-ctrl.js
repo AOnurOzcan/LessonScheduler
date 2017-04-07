@@ -1,6 +1,7 @@
 angular.module('LessonScheduler')
 
-    .controller('ClassroomController', ['$scope', '$state', 'ClassroomService', 'ngNotify', '$timeout', '$rootScope', function ($scope, $state, ClassroomService, ngNotify, $timeout, $rootScope) {
+    .controller('ClassroomController', ['$scope', '$state', 'ClassroomService', 'ngNotify', '$timeout', '$rootScope',
+        function ($scope, $state, ClassroomService, ngNotify, $timeout, $rootScope) {
 
         $rootScope.parent = "Yönetim Paneli";
         $rootScope.path = "Sınıf Yönetimi";

@@ -7,9 +7,9 @@ angular.module('LessonScheduler')
                 UserService.registerUser(user).then(function () {
                     UserService.setCredentials(user);
                     $timeout(function () {
-                        $state.go("dashboard");
+                        $state.go("login");
                     }, 1000);
-                    ngNotify.set("Kayıt Başarılı. Yönlendiriiyorsunuz..", "success");
+                    ngNotify.set("Kayıt Başarılı. Lütfen giriş yapınız..", "success");
                 }, function (error) {
                     ngNotify.set(error.data, "error");
                 });

@@ -1,4 +1,4 @@
-angular.module('LessonScheduler', ['ui.router', 'ngNotify', 'ui.bootstrap'])
+angular.module('LessonScheduler', ['ui.router', 'ngNotify', 'ui.bootstrap', 'ui.calendar'])
 
     .run(['$rootScope', '$location', 'UserService', '$http', '$state', 'ngNotify',
         function ($rootScope, $location, UserService, $http, $state, ngNotify) {
@@ -119,6 +119,132 @@ angular.module('LessonScheduler', ['ui.router', 'ngNotify', 'ui.bootstrap'])
                     "content": {
                         templateUrl: "app/templates/classroom/edit-classroom.html",
                         controller: "ClassroomController"
+                    }
+                }
+            })
+
+            .state('constraints', {
+                url: '/constraints',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/constraint/constraints.html",
+                        controller: "ConstraintController"
+                    }
+                }
+            })
+
+            .state('add-constraint', {
+                url: '/add-constraint',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/constraint/add-constraint.html",
+                        controller: "ConstraintController"
+                    }
+                }
+            })
+
+            .state('edit-constraint', {
+                url: '/edit-constraint/:id',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/constraint/edit-constraint.html",
+                        controller: "ConstraintController"
+                    }
+                }
+            })
+            
+            .state('lessons', {
+                url: '/lessons',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/lesson/lessons.html",
+                        controller: "LessonController"
+                    }
+                }
+            })
+
+            .state('add-lesson', {
+                url: '/add-lesson',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/lesson/add-lesson.html",
+                        controller: "LessonController"
+                    }
+                }
+            })
+
+            .state('edit-lesson', {
+                url: '/edit-lesson/:id',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/lesson/edit-lesson.html",
+                        controller: "LessonController"
+                    }
+                }
+            })
+
+            .state('choose-lesson', {
+                url: '/choose-lesson',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/chooseLesson/choose-lesson.html",
+                        controller: "ChooseLessonController"
                     }
                 }
             });
