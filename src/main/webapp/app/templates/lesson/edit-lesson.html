@@ -9,6 +9,10 @@
             </div>
 
             <div class="form-group">
+                <input type="text" class="form-control" ng-model="lesson.lessonTime" placeholder="Ders Süresi" required>
+            </div>
+
+            <div class="form-group">
                 <select class="form-control" ng-model="lesson.classRoom.id" required>
                     <option value="" disabled selected>Sınıf Seçiniz</option>
                     <option value="{{classroom.id}}" ng-repeat="classroom in classrooms">

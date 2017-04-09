@@ -9,6 +9,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "CONSTRAINT")
+@NamedQueries({
+        @NamedQuery(name = "Constraint.findAllConstraintsByUser", query = "select c from Constraint c where c.user.id = :userId")
+})
 public class Constraint implements Serializable{
 
     @Id

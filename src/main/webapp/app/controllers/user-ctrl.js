@@ -2,7 +2,7 @@ angular.module('LessonScheduler')
 
     .controller('UserCtrl', ['$scope', '$state', 'UserService', 'ngNotify', '$timeout', '$rootScope',
         function ($scope, $state, UserService, ngNotify, $timeout, $rootScope) {
-
+            
             $scope.registerUser = function (user) {
                 UserService.registerUser(user).then(function () {
                     UserService.setCredentials(user);
@@ -16,10 +16,11 @@ angular.module('LessonScheduler')
             };
 
             $scope.login = function (user) {
+
                 UserService.login(user).then(function () {
                     UserService.setCredentials(user);
                     $timeout(function () {
-                        $state.go("dashboard");
+                        $state.go("schedule");
                     }, 1000);
                     ngNotify.set("Giriş Başarılı. Yönlendiriiyorsunuz..", "success");
                 }, function () {

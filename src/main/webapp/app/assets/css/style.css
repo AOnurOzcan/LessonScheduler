@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Play);
-@import url(https://fonts.googleapis.com/css?family=Fredericka+the+Great);
+/*@import url(https://fonts.googleapis.com/css?family=Play);*/
+/*@import url(https://fonts.googleapis.com/css?family=Fredericka+the+Great);*/
 
 .brand-font {
     font-family: 'Fredericka the Great', cursive;
@@ -14,7 +14,7 @@ body {
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 /*Login form start*/
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
 
 .login-page {
     width: 360px;

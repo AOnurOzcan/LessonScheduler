@@ -65,6 +65,7 @@ public class LessonService {
         classRoom = classRoomDao.find(lessonDto.getClassRoom().getId());
         lesson.setLessonName(lessonDto.getLessonName());
         lesson.setClassRoom(classRoom);
+        lesson.setLessonTime(lessonDto.getLessonTime());
 
         if (lessonDto.getId() == null) {
             lessonDao.persist(lesson);

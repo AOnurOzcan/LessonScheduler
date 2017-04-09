@@ -51,6 +51,7 @@
             <ref bean="userResource"/>
             <ref bean="constraintResource"/>
             <ref bean="lessonResource"/>
+            <ref bean="scheduleResource"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean='jacksonProvider'/>

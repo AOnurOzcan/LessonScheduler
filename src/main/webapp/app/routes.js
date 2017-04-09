@@ -51,8 +51,8 @@ angular.module('LessonScheduler', ['ui.router', 'ngNotify', 'ui.bootstrap', 'ui.
                 }
             })
 
-            .state('dashboard', {
-                url: '/dashboard',
+            .state('schedule', {
+                url: '/schedule',
                 views: {
                     "header": {
                         templateUrl: "app/templates/header/header.html",
@@ -63,8 +63,8 @@ angular.module('LessonScheduler', ['ui.router', 'ngNotify', 'ui.bootstrap', 'ui.
                         controller: "SidebarCtrl"
                     },
                     "content": {
-                        templateUrl: "app/templates/dashboard/dashboard.html",
-                        controller: "DashboardCtrl"
+                        templateUrl: "app/templates/schedule/schedule.html",
+                        controller: "ScheduleCtrl"
                     }
                 }
             })

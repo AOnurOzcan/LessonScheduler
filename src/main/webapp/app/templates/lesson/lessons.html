@@ -13,6 +13,7 @@
                 <th class="col-lg-1">Dersin Adı</th>
                 <th class="col-lg-1">Sınıf</th>
                 <th class="col-lg-2">Dersi Veren Akademisyen</th>
+                <th class="col-lg-2">Ders Süresi</th>
                 <th class="col-lg-1">Düzenle</th>
                 <th class="col-lg-1">Sil</th>
             </tr>
@@ -23,6 +24,9 @@
                 <td>{{lesson.classRoom.classRoomNo}}</td>
                 <td ng-if="lesson.user">{{lesson.user.name}}</td>
                 <td ng-if="!lesson.user">Belirtilmedi</td>
+                <td>
+                    <span ng-if="lesson.lessonTime">{{lesson.lessonTime}} saat</span>
+                </td>
                 <td>
                     <a ui-sref="edit-lesson({'id':lesson.id})">
                         <button class="btn btn-xs btn-warning">Düzenle</button>

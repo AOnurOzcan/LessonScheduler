@@ -30,6 +30,9 @@ public class Lesson {
     @JoinColumn(name = "TEACHER_ID")
     private User user; //Dersi veren akademisyen
 
+    @Column(name = "LESSON_TIME")
+    private Integer lessonTime;
+
     public Integer getId() {
         return id;
     }
@@ -60,5 +63,13 @@ public class Lesson {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getLessonTime() {
+        return lessonTime;
+    }
+
+    public void setLessonTime(Integer lessonTime) {
+        this.lessonTime = lessonTime;
     }
 }

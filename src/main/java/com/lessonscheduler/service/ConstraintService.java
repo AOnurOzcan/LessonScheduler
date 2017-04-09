@@ -5,10 +5,12 @@ import com.lessonscheduler.dao.UserDao;
 import com.lessonscheduler.domain.Constraint;
 import com.lessonscheduler.domain.User;
 import com.lessonscheduler.dto.ConstraintDto;
+import com.lessonscheduler.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +27,17 @@ public class ConstraintService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    HttpSession httpSession;
+
     @Transactional(readOnly = true)
     public List<ConstraintDto> getAllConstraints() {
 
         List<ConstraintDto> constraintDtoList = new ArrayList<ConstraintDto>();
+        UserDto userDto = (UserDto) httpSession.getAttribute("user");
 
         //Tüm kısıtları bul.
-        List<Constraint> constraintList = constraintDao.findAll();
+        List<Constraint> constraintList = constraintDao.findAllConstraintsByUser(userDto.getId());
 
         for (Constraint constraint : constraintList) {
             constraintDtoList.add(new ConstraintDto(constraint));

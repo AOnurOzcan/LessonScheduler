@@ -15,12 +15,15 @@ public class LessonDto {
 
     private UserDto user; //Dersi veren akademisyen
 
+    private Integer lessonTime;
+
     public LessonDto() {
     }
 
     public LessonDto(Lesson lesson) {
         this.id = lesson.getId();
         this.lessonName = lesson.getLessonName();
+        this.lessonTime = lesson.getLessonTime();
 
         if (lesson.getClassRoom() != null) {
             this.classRoom = new ClassRoomDto(lesson.getClassRoom());
@@ -61,5 +64,13 @@ public class LessonDto {
 
     public void setUser(UserDto user) {
         this.user = user;
+    }
+
+    public Integer getLessonTime() {
+        return lessonTime;
+    }
+
+    public void setLessonTime(Integer lessonTime) {
+        this.lessonTime = lessonTime;
     }
 }

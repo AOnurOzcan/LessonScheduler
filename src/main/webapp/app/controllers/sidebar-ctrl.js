@@ -1,7 +1,7 @@
 angular.module('LessonScheduler')
     .controller('SidebarCtrl', ['$scope', function ($scope) {
         $scope.menus = [
-            {"name": "Yönetim Merkezi", "href": "#/dashboard", "icon": "fa-dashboard"},
+            {"name": "Yönetim Merkezi", "href": "#/schedule", "icon": "fa-dashboard"},
             {"name": "Sınıf Yönetimi", "href": "#/classrooms", "icon": "fa-stack-overflow"},
             {"name": "Kısıt Yönetimi", "href": "#/constraints", "icon": "fa-users"},
             {"name": "Ders Yönetimi", "href": "#/lessons", "icon": "fa-pied-piper"},
