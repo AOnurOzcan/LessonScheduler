@@ -33,7 +33,14 @@ public class ScheduleService {
     ConstraintDao constraintDao;
 
     @Transactional
+    private void removeAllSchedules() {
+        scheduleDao.removeAllSchedules();
+    }
+
+    @Transactional
     public void createSchedule() {
+
+        removeAllSchedules();
 
         Map<Integer, Lesson> mondaySchedule = new HashMap<Integer, Lesson>();
         Map<Integer, Lesson> tuesdaySchedule = new HashMap<Integer, Lesson>();
@@ -50,7 +57,7 @@ public class ScheduleService {
 
         List<Lesson> placedLessons = new ArrayList<Lesson>();
 
-        List<Lesson> lessonList = lessonDao.findAll();
+        List<Lesson> lessonList = lessonDao.findLessonsTeacherSpecified();
         List<Constraint> constraintList = constraintDao.findAll();
 
         for (int i = 0; i < 5; i++) {
@@ -119,12 +126,12 @@ public class ScheduleService {
             if (schedule.get(hour) != null) {
 
                 //Yerleştireceğimiz dersin başlangıç saatini belirle
-                lessonStartTime = hour + schedule.get(hour).getLessonTime() - 1;
+                lessonStartTime = findLessonFinishTime(schedule.get(hour), schedule) - 1;
 
                 //Eğer yerleştireceğimiz ders ile yerleştirilmiş dersin hocaları aynı ise üzerine dersler arası süreyi ekle
-                if (schedule.get(hour).getUser().getId().equals(teacherId)) {
-                    lessonStartTime += schedule.get(hour).getUser().getLessonInterval();
-                }
+//                if (schedule.get(hour).getUser().getId().equals(teacherId)) {
+//                    lessonStartTime += schedule.get(hour).getUser().getLessonInterval();
+//                }
 
                 hour = lessonStartTime;
 
@@ -143,7 +150,7 @@ public class ScheduleService {
                         if (schedule.get(k) != null) {
                             lessonExists = true;
                             //Hour değişkenini var olan dersin bitiş saatinden itibaren devam edecek şekilde değiştir.
-                            hour = k + schedule.get(k).getLessonTime();
+                            hour = k + schedule.get(k).getLessonTime() - 1;
                             break;
                         }
 
@@ -151,12 +158,45 @@ public class ScheduleService {
 
                     //Dersin başlangıcıyla bitişi arasında bir ders yok ise dersi yerleştir
                     if (!lessonExists) {
-                        return lessonStartTime;
+
+                        boolean conflict = false;
+                        Integer tempLessonTime = 0;
+
+                        int start = lessonStartTime - lesson.getUser().getLessonInterval() < 9 ? 9 : lessonStartTime - lesson.getUser().getLessonInterval();
+                        int end = lessonStartTime + lesson.getLessonTime() + lesson.getUser().getLessonInterval() > 24 ? 24 : lessonStartTime + lesson.getLessonTime() + lesson.getUser().getLessonInterval();
+
+                        for (int m = start; m < end; m++) {
+                            if (schedule.get(m) != null) {
+                                if (schedule.get(m).getUser().getId().equals(lesson.getUser().getId())) {
+                                    conflict = true;
+                                    tempLessonTime = findLessonFinishTime(schedule.get(m), schedule);
+                                }
+
+                            }
+                        }
+
+                        if (conflict) {
+                            hour = tempLessonTime + lesson.getUser().getLessonInterval() - 1;
+                        } else {
+                            return lessonStartTime;
+
+                        }
                     }
 
                 } else {
                     return -1;
                 }
+            }
+        }
+
+        return -1;
+    }
+
+    private Integer findLessonFinishTime(Lesson lesson, Map<Integer, Lesson> schedule) {
+        for (int hour = 9; hour < 24; hour++) {
+            //Ders bulundu
+            if (schedule.get(hour) != null && schedule.get(hour).getId().equals(lesson.getId())) {
+                return hour + lesson.getLessonTime();
             }
         }
 

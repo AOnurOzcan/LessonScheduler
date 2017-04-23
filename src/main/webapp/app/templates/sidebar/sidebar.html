@@ -7,27 +7,14 @@
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
         </li>
-        <li class="sidebar-title"><span>İŞLEMLER</span></li>
-        <li ng-repeat="menu in menus" class="sidebar-list">
-          <a ng-href="{{menu.href}}">{{menu.name}}<span class="menu-icon fa {{menu.icon}}"></span></a>
+        <li  class="sidebar-list">
+          <a ui-sref="schedule">Ders Programı<span class="menu-icon fa fa-dashboard"></span></a>
+          <a ui-sref="classrooms" ng-if="currentUser.accountType == 1">Sınıf Yönetimi<span class="menu-icon fa fa-stack-overflow"></span></a>
+          <a ui-sref="constraints" ng-if="currentUser.accountType == 0">Kısıt Yönetimi<span class="menu-icon fa fa-users"></span></a>
+          <a ui-sref="lessons" ng-if="currentUser.accountType == 1">Ders Yönetimi<span class="menu-icon fa fa-pied-piper"></span></a>
+          <a ui-sref="choose-lesson" ng-if="currentUser.accountType == 0">Ders Seçimi<span class="menu-icon fa fa-level-up"></span></a>
+          <a ui-sref="generate-schedule">Ders Programı Oluştur<span class="menu-icon fa fa-level-down"></span></a>
         </li>
       </ul>
-      <div class="sidebar-footer">
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular" target="_blank">
-            &nbsp;
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
-            &nbsp;
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="#">
-            &nbsp;
-          </a>
-        </div>
-      </div>
     </div>
     <!-- End Sidebar -->

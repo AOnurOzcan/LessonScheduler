@@ -28,11 +28,13 @@ public class ScheduleResource {
     @Path("/calculate")
     public Response calculateSchedule() {
 
-        try {
-            scheduleService.createSchedule();
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-        }
+//        try {
+//            scheduleService.createSchedule();
+//        } catch (Exception e) {
+//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+//        }
+
+        scheduleService.createSchedule();
 
         return Response.ok().build();
     }

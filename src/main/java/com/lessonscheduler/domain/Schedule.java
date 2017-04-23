@@ -8,6 +8,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "SCHEDULE")
+@NamedQueries({
+        @NamedQuery(name = "Schedule.removeAllSchedules", query = "DELETE from Schedule")
+})
 public class Schedule {
 
     @Id

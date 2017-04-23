@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "LESSON")
 @NamedQueries({
-        @NamedQuery(name = "Lesson.findNotChosenLessons", query = "select l from Lesson l where l.user is null or l.user.id = :userId")
+        @NamedQuery(name = "Lesson.findNotChosenLessons", query = "select l from Lesson l where l.user is null or l.user.id = :userId"),
+        @NamedQuery(name = "Lesson.findLessonsTeacherSpecified", query = "select l from Lesson l where l.user is not null")
 })
 public class Lesson {
 

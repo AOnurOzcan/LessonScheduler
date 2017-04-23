@@ -22,4 +22,9 @@ public class LessonDao extends GenericDao<Lesson> {
         query.setParameter("userId", userId);
         return query.getResultList();
     }
+
+    public List<Lesson> findLessonsTeacherSpecified() {
+        TypedQuery<Lesson> query = entityManager.createNamedQuery("Lesson.findLessonsTeacherSpecified", Lesson.class);
+        return query.getResultList();
+    }
 }

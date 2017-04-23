@@ -247,6 +247,24 @@ angular.module('LessonScheduler', ['ui.router', 'ngNotify', 'ui.bootstrap', 'ui.
                         controller: "ChooseLessonController"
                     }
                 }
+            })
+            
+            .state('generate-schedule', {
+                url: '/generate-schedule',
+                views: {
+                    "header": {
+                        templateUrl: "app/templates/header/header.html",
+                        controller: "HeaderCtrl"
+                    },
+                    "sidebar": {
+                        templateUrl: "app/templates/sidebar/sidebar.html",
+                        controller: "SidebarCtrl"
+                    },
+                    "content": {
+                        templateUrl: "app/templates/generateSchedule/generate-schedule.html",
+                        controller: "GenerateScheduleController"
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise("/");

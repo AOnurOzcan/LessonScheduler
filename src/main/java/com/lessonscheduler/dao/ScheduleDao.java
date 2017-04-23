@@ -14,4 +14,7 @@ public class ScheduleDao extends GenericDao<Schedule> {
         super(Schedule.class);
     }
 
+    public void removeAllSchedules() {
+        entityManager.createNamedQuery("Schedule.removeAllSchedules").executeUpdate();
+    }
 }

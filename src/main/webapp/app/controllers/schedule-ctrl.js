@@ -24,6 +24,7 @@ angular.module('LessonScheduler')
                     locale: 'tr',
                     height: 500,
                     sticky: true,
+                    timeFormat: 'H:mm',
                     defaultView: 'agendaWeek',
                     header: {
                         left: '',
