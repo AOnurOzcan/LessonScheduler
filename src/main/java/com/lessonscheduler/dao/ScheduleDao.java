@@ -4,7 +4,7 @@ import com.lessonscheduler.domain.Schedule;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by Onur on 8.4.2017.
+ * Created by Günay on 8.4.2017.
  */
 
 @Repository

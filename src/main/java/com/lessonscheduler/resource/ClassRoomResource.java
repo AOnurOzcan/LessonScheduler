@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * Created by Onur on 3.4.2017.
+ * Created by Günay on 3.4.2017.
  */
 
 @Component

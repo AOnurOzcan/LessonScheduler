@@ -4,7 +4,7 @@ import com.lessonscheduler.domain.ClassRoom;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by Onur on 4.4.2017.
+ * Created by Günay on 4.4.2017.
  */
 
 @Repository

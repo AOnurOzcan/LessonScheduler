@@ -3,7 +3,7 @@ package com.lessonscheduler.domain;
 import javax.persistence.*;
 
 /**
- * Created by Onur on 6.4.2017.
+ * Created by Günay on 6.4.2017.
  */
 
 @Entity
